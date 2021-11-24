@@ -6,11 +6,11 @@ namespace IterationVSRecursion
     {
         public void calculateIterative(int n)
         {
-            while (n > 0)
+            while (n > 0) // O(n + 1) = O(n) Linear
             {
-                int k = n * n; // k will be n squared
-                Console.WriteLine(k);
-                n = n - 1;
+                int k = n * n; // k will be n squared, 1 step
+                Console.WriteLine(k); // 1 step
+                n = n - 1; // 1 step
             }
         }
 
