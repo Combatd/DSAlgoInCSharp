@@ -16,7 +16,9 @@ namespace TailAndHeadRecursion
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Recursion r = new Recursion();
+            r.calculate(4);
+            Console.ReadKey(); // Wait until we press a key once output shows
         }
     }
 }
