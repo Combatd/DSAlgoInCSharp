@@ -28,10 +28,10 @@ namespace TailAndHeadRecursion
         {
             if (n > 0) // base condition
             {
-                calculate(n - 1); // recursive invocation
+                calculate(n - 1); // 1, 4, 1
                 int k = n * n; // n^2
                 Console.WriteLine(k);
-                calculate(n - 1);
+                calculate(n - 1); // 1, 1, 1
             }
         }
 
