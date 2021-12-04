@@ -21,6 +21,15 @@ namespace SumOfNNumbers
             return total;
         }
 
+        public int sumNRecursion(int n)
+        {
+            if(n == 0)
+            {
+                return 0;
+            }
+            return sumNRecursion(n - 1) + n;
+        }
+
         static void Main(string[] args)
         {
             
