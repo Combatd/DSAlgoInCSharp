@@ -25,7 +25,10 @@ namespace FactorialOfNumber
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Factorial f = new Factorial();
+            Console.WriteLine("Factorial: " + f.factorialIterative(5));
+            Console.WriteLine("Factorial Recursion: " + f.factorialRecursive(5));
+            Console.ReadKey();
         }
     }
 }
