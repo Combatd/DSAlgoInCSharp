@@ -4,7 +4,7 @@ namespace LinearSearch
 {
     class Search
     {
-        public static int linearSearch(int[] A, int n, int key)
+        public int linearSearch(int[] A, int n, int key)
         {
             int index = 0; // iterator index
             while (index < n) // O(n)
@@ -20,7 +20,11 @@ namespace LinearSearch
 
         static void Main(string[] args)
         {
-            
+            Search s = new Search();
+            int[] A = { 84, 21, 47, 96, 15 };
+            int found = s.linearSearch(A, 5, 96);
+            Console.WriteLine("Result: " + found);
+            Console.ReadKey();
         }
     }
 }
