@@ -25,12 +25,38 @@ namespace BinarySearch
             return -1; // key is not found
         }
 
+        public int binarySearchRecursive(int[] A, int key, int l, int r)
+        {
+            if(l > r) // The array we are searching must have a length greater than 0
+            {
+                return -1;
+            } else
+            {
+                int mid = (l + r) / 2;
+                if (key == A[mid])
+                {
+                    return mid;
+                }
+                else if (key < A[mid]) // 
+                {
+                    return binarySearchRecursive(A, key, 1, mid - 1);
+                }
+                else if (key > A[mid])
+                {
+                    return binarySearchRecursive(A, key, mid + 1, r);
+                }
+            }
+            return -1; // not found
+        }
+
         static void Main(string[] args)
         {
             Search s = new Search();
             int[] A = { 15, 21, 47, 84, 96 };
             int found = s.binarySearch(A, 5, 96);
+            int recursiveFound = s.binarySearchRecursive(A, 96, 0, 4);
             Console.WriteLine("Result: " + found);
+            Console.WriteLine("Result Recursive: " + recursiveFound);
             Console.ReadKey();
         }
     }
