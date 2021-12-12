@@ -33,7 +33,14 @@ namespace SelectionSort
 
         static void Main(string[] args)
         {
-            
+            Sort s = new Sort();
+            int[] A = { 3, 5, 8, 9, 6, 2 };
+            Console.WriteLine("Original Array: ");
+            s.display(A, 6);
+            s.selectionSort(A, 6);
+            Console.WriteLine("Sorted Array: ");
+            s.display(A, 6);
+            Console.ReadKey(); // wait for user input
         }
     }
 }
