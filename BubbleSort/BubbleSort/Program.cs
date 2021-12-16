@@ -20,6 +20,15 @@ namespace BubbleSort
             }
         }
 
+        public void display(Int[] A, int n)
+        {
+            for(int i = 0; i < n; i++)
+            {
+                Console.Write(A[i] + " ");
+            }
+            Console.WriteLine();
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
