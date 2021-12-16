@@ -20,7 +20,7 @@ namespace BubbleSort
             }
         }
 
-        public void display(Int[] A, int n)
+        public void display(int[] A, int n)
         {
             for(int i = 0; i < n; i++)
             {
@@ -31,7 +31,14 @@ namespace BubbleSort
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Sort s = new Sort();
+            int[] A = { 3, 5, 8, 9, 6, 2 };
+            Console.WriteLine("Original Array:");
+            s.display(A, 6);
+            s.bubbleSort(A, 6);
+            Console.WriteLine("Sorted Array: ");
+            s.display(A, 6);
+            Console.ReadKey();
         }
     }
 }
