@@ -2,11 +2,10 @@
 
 namespace MergeSort
 {
-    class Program
+    class Sort
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }
