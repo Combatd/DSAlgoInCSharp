@@ -25,6 +25,15 @@ namespace ShellSort
             }
         }
 
+        public void display(int[] A, int n)
+        {
+            for(int i = 0; i < n; i++)
+            {
+                Console.Write(A[i] + " ");
+            }
+            Console.WriteLine();
+        }
+
         static void Main(string[] args)
         {
             
