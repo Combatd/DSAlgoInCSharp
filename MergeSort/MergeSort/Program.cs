@@ -66,6 +66,15 @@ namespace MergeSort
 
         static void Main(string[] args)
         {
+            Sort s = new Sort();
+            int[] A = { 3, 5, 8, 9, 6, 2 };
+            Console.WriteLine("Original Array: ");
+            s.display(A, 6);
+            s.mergeSort(A, 0, A.Length - 1);
+            Console.WriteLine("Sorted Array: ");
+            s.display(A, 6);
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
     }
 }
