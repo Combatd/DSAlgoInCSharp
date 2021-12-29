@@ -67,7 +67,9 @@ namespace QuickSort
 
         public void swap(int[] A, int i, int j)
         {
-
+            int temp = A[i]; // save the current value of A[i]
+            A[i] = A[j]; // set the value as the value of A[j] 
+            A[j] = temp; // set the value of A[j] as the old value of A[i]
         }
 
         static void Main(string[] args)
