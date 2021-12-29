@@ -41,7 +41,33 @@ namespace QuickSort
 
         public int partition(int[] A, int low, int high)
         {
-            return 0;
+            int pivot = A[low];
+            int i = low + 1;
+            int j = high;
+
+            do
+            {
+                while (i <= j && A[i] <= pivot)
+                {
+                    i = i + 1;
+                }
+                while (i <= j && A[j] > pivot)
+                {
+                    j = j - 1;
+                }
+                if (i <= j)
+                {
+                    swap(A, i, j);
+                }
+            } while (i < j);
+
+            swap(A, low, j);
+            return j;
+        }
+
+        public void swap(int[] A, int i, int j)
+        {
+
         }
 
         static void Main(string[] args)
