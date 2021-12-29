@@ -29,6 +29,21 @@ namespace QuickSort
 
     class Sort
     {
+        public void quickSort(int[] A, int low, int high)
+        {
+            if (low < high)
+            {
+                int partitionIndex = partition(A, low, high);
+                quickSort(A, low, partitionIndex - 1);
+                quickSort(A, partitionIndex + 1, high);
+            }
+        }
+
+        public int partition(int[] A, int low, int high)
+        {
+            return 0;
+        }
+
         static void Main(string[] args)
         {
         }
