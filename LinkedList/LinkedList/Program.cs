@@ -50,6 +50,21 @@ namespace LinkedList
             size = size + 1; // we increase the size by 1 as there is a new l
         }
 
+        public  void addFirst(int e)
+        {
+            Node newest = new Node(e, null);
+            if(isEmpty())
+            {
+                head = newest;
+                tail = newest;
+            } else
+            {
+                newest.next = head;
+                head = newest;
+            }
+            size = size + 1;
+        }
+
         public void display()
         {
             Node p = head;
@@ -67,10 +82,13 @@ namespace LinkedList
             l.addLast(7);
             l.addLast(4);
             l.addLast(12);
-            l.display();
-            Console.WriteLine("Size" + l.length());
             l.addLast(8);
             l.addLast(3);
+            l.display();
+            Console.WriteLine("Size" + l.length());
+            l.addFirst(15);
+            l.display();
+            l.addFirst(25);
             l.display();
             Console.ReadKey();
         }
