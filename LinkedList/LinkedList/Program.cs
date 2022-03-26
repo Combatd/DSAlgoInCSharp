@@ -26,9 +26,53 @@ namespace LinkedList
             size = 0; // when first constructing LinkedList, it has no elements
         }
 
+        public int length()
+        {
+            return size; // return how many elements are in the LinkedList
+        }
+
+        public bool isEmpty()
+        {
+            return size == 0; // if size is 0, this will return true
+        }
+
+        public void addLast(int e)
+        {
+            Node newest = new Node(e, null); // use argument element to create new Node
+            if (isEmpty())
+            {
+                head = newest; // if the LinkedList is empty, the new element is the first node
+            } else
+            {
+                tail.next = newest; // the new element is the next element of the current tail
+            }
+            tail = newest; // now the newest element is assigned as the last element of the list
+            size = size + 1; // we increase the size by 1 as there is a new l
+        }
+
+        public void display()
+        {
+            Node p = head;
+            while(p != null)
+            {
+                Console.Write(p.element + " --> ");
+                p = p.next;
+            }
+            Console.WriteLine();
+        }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            LinkedList l = new LinkedList();
+            l.addLast(7);
+            l.addLast(4);
+            l.addLast(12);
+            l.display();
+            Console.WriteLine("Size" + l.length());
+            l.addLast(8);
+            l.addLast(3);
+            l.display();
+            Console.ReadKey();
         }
     }
 }
