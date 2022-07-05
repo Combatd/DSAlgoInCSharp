@@ -65,6 +65,26 @@ namespace LinkedList
             size = size + 1;
         }
 
+        public void addAny(int e, int position)
+        {
+            if(position <= 0 || position >= size)
+            {
+                Console.WriteLine("Invalid Position");
+                return;
+            }
+            Node newest = new Node(e, null);
+            Node p = head;
+            int i = 1;
+            while(i < position - 1)
+            {
+                p = p.next;
+                i = i + 1;
+            }
+            newest.next = p.next;
+            p.next = newest;
+            size = size + 1;
+        }
+
         public void display()
         {
             Node p = head;
@@ -85,11 +105,17 @@ namespace LinkedList
             l.addLast(8);
             l.addLast(3);
             l.display();
-            Console.WriteLine("Size" + l.length());
+            Console.WriteLine("Size " + l.length());
             l.addFirst(15);
             l.display();
             l.addFirst(25);
             l.display();
+            l.addAny(20, 3);
+            l.display();
+            Console.WriteLine("Size " + l.length());
+            l.addAny(40, 5);
+            Console.WriteLine("Size " + l.length());
+
             Console.ReadKey();
         }
     }
