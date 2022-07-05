@@ -104,6 +104,28 @@ namespace LinkedList
             }
         }
 
+        public int removeLast()
+        {
+            if(isEmpty())
+            {
+                Console.WriteLine("List is Empty");
+                return -1;
+            }
+            Node p = head;
+            int i = 1;
+            while(i < size - 1) // cannot make stale reference, have to start at head
+            {
+                p = p.next;
+                i = i + 1;
+            }
+            tail = p;
+            p = p.next;
+            int e = p.element;
+            tail.next = null;
+            size = size - 1;
+            return e;
+        }
+
         public void display()
         {
             Node p = head;
@@ -136,6 +158,10 @@ namespace LinkedList
             Console.WriteLine("Size " + l.length());
             int element = l.removeFirst(); // no arguments but returns the node
             Console.WriteLine("Removed Element: " + element);
+            Console.WriteLine("Size " + l.length());
+            int ele = l.removeLast();
+            Console.WriteLine("Removed Element: " + ele);
+            l.display();
             Console.WriteLine("Size " + l.length());
 
             Console.ReadKey();
