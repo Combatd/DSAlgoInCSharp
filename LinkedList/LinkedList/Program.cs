@@ -85,6 +85,25 @@ namespace LinkedList
             size = size + 1;
         }
 
+        public int removeFirst()
+        {
+            if(isEmpty())
+            {
+                Console.WriteLine("List is Empty");
+                return -1;
+            } else
+            {
+                int e = head.element;
+                head = head.next;
+                size = size - 1;
+                if(isEmpty())
+                {
+                    tail = null;
+                }
+                return e;
+            }
+        }
+
         public void display()
         {
             Node p = head;
@@ -114,6 +133,9 @@ namespace LinkedList
             l.display();
             Console.WriteLine("Size " + l.length());
             l.addAny(40, 5);
+            Console.WriteLine("Size " + l.length());
+            int element = l.removeFirst(); // no arguments but returns the node
+            Console.WriteLine("Removed Element: " + element);
             Console.WriteLine("Size " + l.length());
 
             Console.ReadKey();
