@@ -70,6 +70,25 @@ namespace CircularLinkedList
             size = size + 1; // O(1)
         }
 
+        public void addAny(int e, int position)
+        {
+            if (position <= 0 || position >= size)
+            {
+                Console.WriteLine("Invalid Position");
+                return;
+            }
+            Node newest = new Node(e, null); // O(1)
+            Node p = head; // O(1)
+            int i = 1; // O(1)
+            while (i < position - 1) { // O(n)
+                p = p.next; // move the reference/pointer to next Node
+                i = i + 1;
+            }
+            newest.next = p.next; // O(1)
+            p.next = newest; // O(1)
+            size = size + 1; // O(1)
+        }
+
         public void display()
         {
             Node p = head;
@@ -98,6 +117,12 @@ namespace CircularLinkedList
             l.addFirst(25);
             l.display();
             l.addFirst(35);
+            l.display();
+            Console.WriteLine("Size: " + l.length());
+            l.addAny(20, 3);
+            l.display();
+            Console.WriteLine("Size: " + l.length());
+            l.addAny(30, 5);
             l.display();
             Console.WriteLine("Size: " + l.length());
 
