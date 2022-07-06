@@ -108,6 +108,28 @@ namespace CircularLinkedList
             return e;
         }
 
+        public int removeLast()
+        {
+            if(isEmpty())
+            {
+                Console.WriteLine("Circular List is Empty");
+                return -1;
+            }
+            Node p = head;
+            int i = 1;
+            while (i < length() - 1)
+            {
+                p = p.next;
+                i = i + 1;
+            }
+            tail = p;
+            p = p.next;
+            tail.next = head;
+            int e = p.element;
+            size = size - 1;
+            return e;
+        }
+
         public void display()
         {
             Node p = head;
@@ -146,6 +168,10 @@ namespace CircularLinkedList
             Console.WriteLine("Size: " + l.length());
             int element = l.removeFirst();
             Console.WriteLine("Removed Element: " + element);
+            l.display();
+            Console.WriteLine("Size: " + l.length());
+            int elementTwo = l.removeLast();
+            Console.WriteLine("Removed Element: " + elementTwo);
             l.display();
             Console.WriteLine("Size: " + l.length());
 
