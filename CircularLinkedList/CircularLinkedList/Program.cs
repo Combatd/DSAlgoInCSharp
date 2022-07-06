@@ -53,6 +53,23 @@ namespace CircularLinkedList
             size = size + 1;
         }
 
+        public void addFirst(int e)
+        {
+            Node newest = new Node(e, null); // O(1)
+            if (isEmpty())
+            {
+                newest.next = newest; // O(1)
+                head = newest; // O(1)
+                tail = newest; // O(1)
+            } else
+            {
+                tail.next = newest; // O(1)
+                newest.next = head; // O(1)
+                head = newest; // O(1)
+            }
+            size = size + 1; // O(1)
+        }
+
         public void display()
         {
             Node p = head;
@@ -76,6 +93,11 @@ namespace CircularLinkedList
             Console.WriteLine("Size: " + l.length());
             l.addLast(8);
             l.addLast(3);
+            l.display();
+            Console.WriteLine("Size: " + l.length());
+            l.addFirst(25);
+            l.display();
+            l.addFirst(35);
             l.display();
             Console.WriteLine("Size: " + l.length());
 
