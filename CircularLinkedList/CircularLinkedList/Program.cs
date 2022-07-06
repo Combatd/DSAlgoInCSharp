@@ -15,6 +15,32 @@ namespace CircularLinkedList
 
     class CircularLinkedList
     {
+        private Node head;
+        private Node tail;
+        private int size;
+
+        public CircularLinkedList()
+        {
+            head = null;
+            tail = null;
+            size = 0;
+        }
+
+        public int length()
+        {
+            return size;
+        }
+
+        public bool isEmpty()
+        {
+            return size == 0;
+        }
+
+        public void addLast()
+        {
+
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
