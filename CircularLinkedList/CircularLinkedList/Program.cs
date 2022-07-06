@@ -130,6 +130,26 @@ namespace CircularLinkedList
             return e;
         }
 
+        public int removeAny(int position)
+        {
+            if (position <= 0 || position >= size - 1)
+            {
+                Console.WriteLine("Invalid Position");
+                return -1;
+            }
+            Node p = head;
+            int i = 1;
+            while (i < position - 1)
+            {
+                p = p.next; // used to move the reference/pointer p to next Node
+                i = i + 1;
+            }
+            int e = p.next.element;
+            p.next = p.next.next; // the node after the node being deleted
+            size = size - 1;
+            return e;
+        }
+
         public void display()
         {
             Node p = head;
@@ -163,14 +183,15 @@ namespace CircularLinkedList
             l.addAny(20, 3);
             l.display();
             Console.WriteLine("Size: " + l.length());
-            l.addAny(20, 3);
-            l.display();
-            Console.WriteLine("Size: " + l.length());
             int element = l.removeFirst();
             Console.WriteLine("Removed Element: " + element);
             l.display();
             Console.WriteLine("Size: " + l.length());
             int elementTwo = l.removeLast();
+            Console.WriteLine("Removed Element: " + elementTwo);
+            l.display();
+            Console.WriteLine("Size: " + l.length());
+            int removedElement = l.removeAny(3);
             Console.WriteLine("Removed Element: " + elementTwo);
             l.display();
             Console.WriteLine("Size: " + l.length());
