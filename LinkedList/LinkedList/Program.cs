@@ -146,6 +146,22 @@ namespace LinkedList
             return e;
         }
 
+        public int search(int key)
+        {
+            Node p = head;
+            int index = 0;
+            while(p != null)
+            {
+                if(p.element == key)
+                {
+                    return index;
+                }
+                p = p.next;
+                index = index + 1;
+            }
+            return -1;
+        }  
+
         public void display()
         {
             Node p = head;
@@ -184,7 +200,10 @@ namespace LinkedList
             l.display();
             Console.WriteLine("Size " + l.length());
             int elementAny = l.removeAny(3);
-            Console.WriteLine("Removed Element: " + elementAny);
+            Console.WriteLine("Removed Element:   " + elementAny);
+            Console.WriteLine("Size: " + l.length());
+            int position = l.search(12);
+            Console.WriteLine("Result: " + position);
             Console.WriteLine("Size: " + l.length());
 
             Console.ReadKey();
