@@ -160,7 +160,34 @@ namespace LinkedList
                 index = index + 1;
             }
             return -1;
-        }  
+        }
+
+        public void insertSorted(int e)
+        {
+            Node newest = new Node(e, null);
+            if(isEmpty())
+            {
+                head = newest;
+            } else
+            {
+                Node p = head;
+                Node q = head; // head reference to object q
+                while (p != null) {
+                    q = p;
+                    p = p.next;
+                }
+                if(p == head)
+                {
+                    newest.next = head;
+                    head = newest; // the new node has to be inserted as a head in the sorted linked list
+                } else
+                {
+                    newest.next = q.next;
+                    q.next = newest;
+                }
+            }
+            size = size + 1;
+        }
 
         public void display()
         {
@@ -176,34 +203,41 @@ namespace LinkedList
         static void Main(string[] args)
         {
             LinkedList l = new LinkedList();
-            l.addLast(7);
-            l.addLast(4);
-            l.addLast(12);
-            l.addLast(8);
-            l.addLast(3);
+            //l.addLast(7);
+            //l.addLast(4);
+            //l.addLast(12);
+            //l.addLast(8);
+            //l.addLast(3);
+            //l.display();
+            //Console.WriteLine("Size " + l.length());
+            //l.addFirst(15);
+            //l.display();
+            //l.addFirst(25);
+            //l.display();
+            //l.addAny(20, 3);
+            //l.display();
+            //Console.WriteLine("Size " + l.length());
+            //l.addAny(40, 5);
+            //Console.WriteLine("Size " + l.length());
+            //int element = l.removeFirst(); // no arguments but returns the node
+            //Console.WriteLine("Removed Element: " + element);
+            //Console.WriteLine("Size " + l.length());
+            //int ele = l.removeLast();
+            //Console.WriteLine("Removed Element: " + ele);
+            //l.display();
+            //Console.WriteLine("Size " + l.length());
+            //int elementAny = l.removeAny(3);
+            //Console.WriteLine("Removed Element:   " + elementAny);
+            //Console.WriteLine("Size: " + l.length());
+            //int position = l.search(12);
+            //Console.WriteLine("Result: " + position);
+            //Console.WriteLine("Size: " + l.length());
+            l.insertSorted(7);
+            l.insertSorted(4);
+            l.insertSorted(12);
+            l.insertSorted(8);
+            l.insertSorted(3);
             l.display();
-            Console.WriteLine("Size " + l.length());
-            l.addFirst(15);
-            l.display();
-            l.addFirst(25);
-            l.display();
-            l.addAny(20, 3);
-            l.display();
-            Console.WriteLine("Size " + l.length());
-            l.addAny(40, 5);
-            Console.WriteLine("Size " + l.length());
-            int element = l.removeFirst(); // no arguments but returns the node
-            Console.WriteLine("Removed Element: " + element);
-            Console.WriteLine("Size " + l.length());
-            int ele = l.removeLast();
-            Console.WriteLine("Removed Element: " + ele);
-            l.display();
-            Console.WriteLine("Size " + l.length());
-            int elementAny = l.removeAny(3);
-            Console.WriteLine("Removed Element:   " + elementAny);
-            Console.WriteLine("Size: " + l.length());
-            int position = l.search(12);
-            Console.WriteLine("Result: " + position);
             Console.WriteLine("Size: " + l.length());
 
             Console.ReadKey();
