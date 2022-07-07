@@ -94,6 +94,27 @@ namespace DoublyLinkedList
             size = size + 1;
         }
 
+        public int removeFirst()
+        {
+            if (isEmpty())
+            {
+                Console.WriteLine("List is Empty");
+                return -1;
+            }
+            int e = head.element;
+            head = head.next;
+            head.prev = null;
+            size = size - 1;
+            if (isEmpty())
+            {
+                tail = null; // if it is empty, we have to make the tail null as well
+            } else
+            {
+                head.prev = null;
+            }
+            return e;
+        }
+
         public void display()
         {
             Node p = head;
@@ -121,6 +142,10 @@ namespace DoublyLinkedList
             l.display();
             Console.WriteLine("Size: " + l.length());
             l.addAny(20, 3);
+            l.display();
+            Console.WriteLine("Size: " + l.length());
+            int element = l.removeFirst();
+            Console.WriteLine("Removed Element: " + element);
             l.display();
             Console.WriteLine("Size: " + l.length());
 
