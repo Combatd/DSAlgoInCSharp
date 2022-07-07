@@ -55,6 +55,22 @@ namespace DoublyLinkedList
             size = size + 1;
         }
 
+        public void addFirst(int e)
+        {
+            Node newest = new Node(e, null, null);
+            if (isEmpty())
+            {
+                head = newest;
+                tail = newest;
+            } else
+            {
+                newest.next = head;
+                head.prev = newest;
+                head = newest;
+            }
+            size = size + 1;
+        }
+
         public void display()
         {
             Node p = head;
@@ -76,6 +92,9 @@ namespace DoublyLinkedList
             Console.WriteLine("Size: " + l.length());
             l.addLast(8);
             l.addLast(3);
+            l.display();
+            Console.WriteLine("Size: " + l.length());
+            l.addFirst(15);
             l.display();
             Console.WriteLine("Size: " + l.length());
 
