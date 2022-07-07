@@ -72,9 +72,35 @@ namespace StacksLinkedList
             return top.element;
         }
 
+        public void display()
+        {
+            Node p = top;
+            while(p != null)
+            {
+                Console.Write(p.element + "-->");
+                p = p.next;
+            }
+            Console.WriteLine();
+        }
+
         static void Main(string[] args)
         {
-            
+            StacksLinked s = new StacksLinked();
+            s.push(5);
+            s.push(3);
+            s.display();
+            Console.WriteLine("Size: " + s.length());
+            Console.WriteLine("Element Removed: " + s.pop());
+            Console.WriteLine("IsEmpty: " + s.isEmpty());
+            Console.WriteLine("Element Removed: " + s.pop());
+            Console.WriteLine("IsEmpty: " + s.isEmpty());
+            s.push(7);
+            s.push(9);
+            s.display();
+            Console.WriteLine("Element Top: " + s.peek());
+            s.display();
+
+            Console.ReadKey();
         }
     }
 }
