@@ -115,6 +115,20 @@ namespace DoublyLinkedList
             return e;
         }
 
+        public int removeLast()
+        {
+            if (isEmpty())
+            {
+                Console.WriteLine("List is Empty");
+                return -1;
+            }
+            int e = tail.element;
+            tail = tail.prev; // the new tail is before the node we are deleting
+            tail.next = null; // setting to null deletes the last node
+            size = size - 1;
+            return e;
+        }
+
         public void display()
         {
             Node p = head;
@@ -146,6 +160,10 @@ namespace DoublyLinkedList
             Console.WriteLine("Size: " + l.length());
             int element = l.removeFirst();
             Console.WriteLine("Removed Element: " + element);
+            l.display();
+            Console.WriteLine("Size: " + l.length());
+            int elementLast = l.removeFirst();
+            Console.WriteLine("Removed Element: " + elementLast);
             l.display();
             Console.WriteLine("Size: " + l.length());
 
