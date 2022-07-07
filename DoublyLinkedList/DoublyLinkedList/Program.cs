@@ -129,6 +129,28 @@ namespace DoublyLinkedList
             return e;
         }
 
+        public int removeAny(int position)
+        {
+            if (position <= 0 || position >= size - 1)
+            {
+                Console.WriteLine("Invalid Position");
+                return -1;
+            }
+
+            Node p = head;
+            int i = 1; // tracks how many nodes we will traverse
+            while (i < position - 1)
+            {
+                p = p.next; // move reference/pointer p to next node
+                i = i + 1;
+            }
+            int e = p.next.element;
+            p.next = p.next.next;
+            p.next.prev = p; // assign the previous reference to the node p
+            size = size - 1;
+            return e;
+        }
+
         public void display()
         {
             Node p = head;
@@ -162,8 +184,12 @@ namespace DoublyLinkedList
             Console.WriteLine("Removed Element: " + element);
             l.display();
             Console.WriteLine("Size: " + l.length());
-            int elementLast = l.removeFirst();
+            int elementLast = l.removeLast();
             Console.WriteLine("Removed Element: " + elementLast);
+            l.display();
+            Console.WriteLine("Size: " + l.length());
+            int removedElement = l.removeAny(3);
+            Console.WriteLine("Removed Element: " + removedElement);
             l.display();
             Console.WriteLine("Size: " + l.length());
 
