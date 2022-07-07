@@ -71,6 +71,29 @@ namespace DoublyLinkedList
             size = size + 1;
         }
 
+        public void addAny (int e, int position)
+        {
+            if (position <= 0 || position >= size)
+            {
+                Console.WriteLine("Invalid Position");
+                return;
+            }
+
+            Node newest = new Node(e, null, null);
+            Node p = head;
+            int i = 1;
+            while (i < position - 1)
+            {
+                p = p.next;
+                i = i + 1;
+            }
+            newest.next = p.next; // we have to assign next to p.next first, because we don't want to lose the reference to the doubly linked list
+            p.next.prev = newest;
+            p.next = newest;
+            newest.prev = p;
+            size = size + 1;
+        }
+
         public void display()
         {
             Node p = head;
@@ -95,6 +118,9 @@ namespace DoublyLinkedList
             l.display();
             Console.WriteLine("Size: " + l.length());
             l.addFirst(15);
+            l.display();
+            Console.WriteLine("Size: " + l.length());
+            l.addAny(20, 3);
             l.display();
             Console.WriteLine("Size: " + l.length());
 
