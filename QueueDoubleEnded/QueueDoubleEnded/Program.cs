@@ -136,9 +136,41 @@ namespace QueueDoubleEnded
             Console.WriteLine();
         }
 
+        public int first()
+        {
+            if(isEmpty())
+            {
+                Console.WriteLine("DeQueue is Empty");
+                return -1;
+            }
+            return front.element;
+        }
+
+        public int last()
+        {
+            if (isEmpty())
+            {
+                Console.WriteLine("DeQueue is Empty");
+                return -1;
+            }
+            return rear.element;
+        }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            DeQueLinked d = new DeQueLinked();
+            d.addFirst(5);
+            d.addFirst(3);
+            d.addLast(7);
+            d.addLast(12);
+            d.display();
+            Console.WriteLine("Size: " + d.length());
+            Console.WriteLine("Front Element Removed: " + d.removeFirst());
+            Console.WriteLine("Rear Element Removed: " + d.removeLast());
+            Console.WriteLine("First Element: " + d.first());
+            Console.WriteLine("LastElement: " + d.last());
+
+            Console.ReadKey();
         }
     }
 }
