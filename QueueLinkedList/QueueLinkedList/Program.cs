@@ -45,9 +45,10 @@ namespace QueueLinkedList
                 front = newest;
             } else
             {
-                rear.next = newest;
-                size = size + 1;
+                rear.next = newest; 
             }
+            rear = newest;
+            size = size + 1;
         }
 
         public int dequeue()
@@ -80,7 +81,23 @@ namespace QueueLinkedList
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            QueuesLinked q = new QueuesLinked();
+            q.enqueue(5);
+            q.enqueue(3);
+            q.display();
+            q.length();
+            Console.WriteLine("Size: " + q.length());
+            Console.WriteLine("Element Removed: " + q.dequeue());
+            Console.WriteLine("IsEmpty: " + q.isEmpty());
+            Console.WriteLine("Element Removed: " + q.dequeue());
+            Console.WriteLine("IsEmpty: " + q.isEmpty());
+            q.enqueue(7);
+            q.enqueue(9);
+            q.enqueue(4);
+            q.display();
+            Console.WriteLine("Size: " + q.length());
+
+            Console.ReadKey();
         }
     }
 }
