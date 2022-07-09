@@ -57,6 +57,16 @@ namespace BinarySearchTree
             }
         }
 
+        public void inOrder(Node tempRoot)
+        {
+            if (tempRoot != null)
+            {
+                inOrder(tempRoot.left);
+                Console.Write(tempRoot.element + " ");
+                inOrder(tempRoot.right);
+            }
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
