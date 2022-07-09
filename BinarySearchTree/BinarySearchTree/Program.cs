@@ -69,7 +69,19 @@ namespace BinarySearchTree
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BST B = new BST();
+            B.insert(B.root, 50);
+            B.insert(B.root, 30);
+            B.insert(B.root, 80);
+            B.insert(B.root, 10);
+            B.insert(B.root, 40);
+            B.insert(B.root, 60);
+            B.insert(B.root, 90);
+            Console.WriteLine("Inorder Traversal");
+            B.inOrder(B.root);
+            Console.WriteLine();
+
+            Console.ReadKey();
         }
     }
 }
