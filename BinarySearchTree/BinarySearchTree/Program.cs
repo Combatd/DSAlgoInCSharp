@@ -62,19 +62,17 @@ namespace BinarySearchTree
             if (tempRoot != null)
             {
                 if (e < tempRoot.element)
-                {
-                    if (e < tempRoot.element)
-                    {
-                        tempRoot.left = insertRecursive(tempRoot.left, e);
-                    } else if (e > tempRoot.element)
-                    {
-                        tempRoot.right = insertRecursive(tempRoot.right, e);
-                    }
-                } else
-                {
-                    Node n = new Node(e, null, null);
-                    tempRoot = n;
-                }
+                   {
+                       tempRoot.left = insertRecursive(tempRoot.left, e);
+                   } else if (e > tempRoot.element)
+                   {
+                      tempRoot.right = insertRecursive(tempRoot.right, e);
+                   }
+            }
+            else
+            {
+                Node n = new Node(e, null, null);
+                tempRoot = n;
             }
             return tempRoot;
         }
@@ -92,6 +90,8 @@ namespace BinarySearchTree
         static void Main(string[] args)
         {
             BST B = new BST();
+            BST C = new BST();
+
             B.insert(B.root, 50);
             B.insert(B.root, 30);
             B.insert(B.root, 80);
@@ -101,6 +101,17 @@ namespace BinarySearchTree
             B.insert(B.root, 90);
             Console.WriteLine("Inorder Traversal");
             B.inOrder(B.root);
+            Console.WriteLine();
+
+            C.root = C.insertRecursive(C.root, 50);
+            C.insertRecursive(C.root, 30);
+            C.insertRecursive(C.root, 80);
+            C.insertRecursive(C.root, 10);
+            C.insertRecursive(C.root, 40);
+            C.insertRecursive(C.root, 60);
+            C.insertRecursive(C.root, 90);
+            Console.WriteLine("Inorder Traversal");
+            C.inOrder(C.root);
             Console.WriteLine();
 
             Console.ReadKey();
