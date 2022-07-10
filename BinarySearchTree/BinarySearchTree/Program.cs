@@ -57,6 +57,28 @@ namespace BinarySearchTree
             }
         }
 
+        public Node insertRecursive(Node tempRoot, int e)
+        {
+            if (tempRoot != null)
+            {
+                if (e < tempRoot.element)
+                {
+                    if (e < tempRoot.element)
+                    {
+                        tempRoot.left = insertRecursive(tempRoot.left, e);
+                    } else if (e > tempRoot.element)
+                    {
+                        tempRoot.right = insertRecursive(tempRoot.right, e);
+                    }
+                } else
+                {
+                    Node n = new Node(e, null, null);
+                    tempRoot = n;
+                }
+            }
+            return tempRoot;
+        }
+
         public void inOrder(Node tempRoot)
         {
             if (tempRoot != null)
