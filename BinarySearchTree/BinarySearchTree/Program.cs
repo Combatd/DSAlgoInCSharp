@@ -97,6 +97,16 @@ namespace BinarySearchTree
             }
         }
 
+        public void postOrder(Node tempRoot)
+        {
+            if (tempRoot != null)
+            {
+                postOrder(tempRoot.left);
+                postOrder(tempRoot.right);
+                Console.Write(tempRoot.element + " ");
+            }
+        }
+
         static void Main(string[] args)
         {
             BST B = new BST();
@@ -125,6 +135,9 @@ namespace BinarySearchTree
             Console.WriteLine();
             Console.WriteLine("Pre Order Traversal");
             B.preOrder(B.root);
+            Console.WriteLine();
+            Console.WriteLine("Post Order Traversal");
+            B.postOrder(B.root);
             Console.WriteLine();
 
             Console.ReadKey();
