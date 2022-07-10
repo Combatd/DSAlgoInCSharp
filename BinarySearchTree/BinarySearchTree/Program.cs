@@ -87,6 +87,16 @@ namespace BinarySearchTree
             }
         }
 
+        public void preOrder(Node tempRoot)
+        {
+            if (tempRoot != null)
+            {
+                Console.Write(tempRoot.element + " ");
+                preOrder(tempRoot.left);
+                preOrder(tempRoot.right);
+            }
+        }
+
         static void Main(string[] args)
         {
             BST B = new BST();
@@ -112,6 +122,9 @@ namespace BinarySearchTree
             C.insertRecursive(C.root, 90);
             Console.WriteLine("Inorder Traversal");
             C.inOrder(C.root);
+            Console.WriteLine();
+            Console.WriteLine("Pre Order Traversal");
+            B.preOrder(B.root);
             Console.WriteLine();
 
             Console.ReadKey();
