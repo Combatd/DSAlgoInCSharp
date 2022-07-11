@@ -127,10 +127,15 @@ namespace Graphs
             //g.insertEdge(2, 3, 8);
             //g.insertEdge(3, 2, 8);
 
-            g.insertEdge(0, 1, 1);
-            g.insertEdge(0, 2, 1);
-            g.insertEdge(1, 2, 1);
-            g.insertEdge(2, 3, 1);
+            //g.insertEdge(0, 1, 1);
+            //g.insertEdge(0, 2, 1);
+            //g.insertEdge(1, 2, 1);
+            //g.insertEdge(2, 3, 1);
+
+            g.insertEdge(0, 1, 26);
+            g.insertEdge(0, 2, 16);
+            g.insertEdge(1, 2, 12);
+            g.insertEdge(2, 3, 8);
 
             Console.WriteLine("Graphs Adjacency Matrix:");
             g.display();
@@ -145,7 +150,7 @@ namespace Graphs
             Console.WriteLine("Graphs Adjacency Matrix:");
             g.display();
             g.removeEdge(1, 2);
-            Console.WriteLine("Edge between 1--2L " + g.existEdge(1, 2));
+            Console.WriteLine("Edge between 1--2: " + g.existEdge(1, 2));
 
             Console.ReadKey();
         }
