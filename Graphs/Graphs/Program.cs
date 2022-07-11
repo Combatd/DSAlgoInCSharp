@@ -85,11 +85,13 @@ namespace Graphs
     {
         int vertices;
         int[,] adjMat;
+        int[] visited;
 
         public Graph(int n)
         {
             vertices = n;
             adjMat = new int[n, n];
+            visited = new int[vertices];
         }
 
         public void insertEdge(int u, int v, int x)
@@ -204,6 +206,22 @@ namespace Graphs
             }
         }
 
+        public void DFS(int s)
+        {
+            if (visited[s] == 0)
+            {
+                Console.Write(s + " ");
+                visited[s] = 1;
+                for (int j = 0; j < vertices; j++)
+                {
+                    if (adjMat[s, j] == 1 && visited[j] == 0)
+                    {
+                        DFS(j);
+                    }
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
             Graph g = new Graph(4);
@@ -273,6 +291,8 @@ namespace Graphs
             x.insertEdge(6, 3, 1);
             Console.WriteLine("Breadth First Search: ");
             x.BFS(0);
+            Console.WriteLine("Depth First Search: ");
+            x.DFS(0);
 
             Console.ReadKey();
         }
