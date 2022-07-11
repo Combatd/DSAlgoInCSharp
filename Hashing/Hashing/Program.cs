@@ -208,6 +208,71 @@ namespace Hashing
 
     }
 
+    public class HashLinearProbe
+    {
+        int hashTableSize;
+        int[] hashTable;
+
+        public HashLinearProbe()
+        {
+            hashTableSize = 10;
+            hashTable = new int[hashTableSize];
+        }
+
+        public int hashCode(int key)
+        {
+            return key % hashTableSize;
+        }
+
+        public int lprobe(int element)
+        {
+            int i = hashCode(element);
+            int j = 0;
+            while(hashTable[(i + j) % hashTableSize] != 0)
+            {
+                j = j + 1;
+            }
+            return (i + j) % hashTableSize;
+        }
+
+        public void insert(int element)
+        {
+            int i = hashCode(element);
+            if (hashTable[i] == 0)
+            {
+                hashTable[i] = element;
+            } else
+            {
+                i = lprobe(element);
+                hashTable[i] = element;
+            }
+        }
+
+        public bool search(int key)
+        {
+            int i = hashCode(key);
+            int j = 0;
+            while (hashTable[(i + j) % hashTableSize] != key)
+            {
+                if (hashTable[(i + j) % hashTableSize] == 0)
+                {
+                    return false;
+                }
+                j = j + 1;
+            }
+            return true;
+        }
+
+        public void display()
+        {
+            for (int i = 0; i < hashTableSize; i++)
+            {
+                Console.Write(hashTable[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+
     class HashChain
     {
         int hashTableSize;
@@ -263,6 +328,19 @@ namespace Hashing
             h.display();
             Console.WriteLine("Element Found: " + h.search(78));
             Console.WriteLine("Element Found: " + h.search(44));
+
+            HashLinearProbe x = new HashLinearProbe();
+            x.insert(54);
+            x.insert(78);
+            x.insert(64);
+            x.insert(92);
+            x.insert(34);
+            x.insert(86);
+            x.insert(28);
+            x.display();
+            Console.WriteLine("Element Found: " + x.search(54));
+            Console.WriteLine("Element Found: " + x.search(92));
+            Console.WriteLine("Element Found: " + x.search(44));
 
             Console.ReadKey();
         }
