@@ -2,6 +2,85 @@
 
 namespace Graphs
 {
+    public class Node
+    {
+        public int element;
+        public Node next;
+
+        public Node(int e, Node n)
+        {
+            element = e;
+            next = n;
+        }
+    }
+
+    class QueuesLinked
+    {
+        Node front;
+        Node rear;
+        int size;
+
+        public QueuesLinked()
+        {
+            front = null;
+            rear = null;
+            size = 0;
+        }
+
+        public int length()
+        {
+            return size;
+        }
+
+        public bool isEmpty()
+        {
+            return size == 0;
+        }
+
+        public void enqueue(int e)
+        {
+            Node newest = new Node(e, null);
+            if (isEmpty())
+            {
+                front = newest;
+            }
+            else
+            {
+                rear.next = newest;
+            }
+            rear = newest;
+            size = size + 1;
+        }
+
+        public int dequeue()
+        {
+            if (isEmpty())
+            {
+                Console.WriteLine("Queue is Empty");
+                return -1;
+            }
+            int e = front.element;
+            front = front.next;
+            size = size - 1;
+            if (isEmpty())
+            {
+                rear = null;
+            }
+            return e;
+        }
+
+        public void display()
+        {
+            Node p = front;
+            while (p != null)
+            {
+                Console.Write(p.element + "-->");
+                p = p.next;
+            }
+            Console.WriteLine();
+        }
+    }
+
     class Graph
     {
         int vertices;
@@ -102,6 +181,29 @@ namespace Graphs
             }
         }
 
+        public void BFS(int s)
+        {
+            int i = s; // starting vertex;
+            QueuesLinked q = new QueuesLinked();
+            int[] visited = new int[vertices];
+            Console.Write(i + " ");
+            visited[i] = 1;
+            q.enqueue(i);
+            while (!q.isEmpty())
+            {
+                i = q.dequeue();
+                for (int j = 0; j < vertices; j++)
+                {
+                    if (adjMat[i, j] == 1 && visited[j] == 0)
+                    {
+                        Console.Write(j + " ");
+                        visited[j] = 1;
+                        q.enqueue(j);
+                    }
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
             Graph g = new Graph(4);
@@ -151,6 +253,26 @@ namespace Graphs
             g.display();
             g.removeEdge(1, 2);
             Console.WriteLine("Edge between 1--2: " + g.existEdge(1, 2));
+
+            Graph x = new Graph(7);
+            x.insertEdge(0, 1, 1);
+            x.insertEdge(0, 5, 1);
+            x.insertEdge(0, 6, 1);
+            x.insertEdge(1, 0, 1);
+            x.insertEdge(1, 2, 1);
+            x.insertEdge(1, 5, 1);
+            x.insertEdge(1, 6, 1);
+            x.insertEdge(2, 3, 1);
+            x.insertEdge(2, 4, 1);
+            x.insertEdge(2, 6, 1);
+            x.insertEdge(3, 4, 1);
+            x.insertEdge(4, 2, 1);
+            x.insertEdge(4, 5, 1);
+            x.insertEdge(5, 2, 1);
+            x.insertEdge(5, 3, 1);
+            x.insertEdge(6, 3, 1);
+            Console.WriteLine("Breadth First Search: ");
+            x.BFS(0);
 
             Console.ReadKey();
         }
