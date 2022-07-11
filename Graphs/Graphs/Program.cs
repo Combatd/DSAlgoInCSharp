@@ -118,14 +118,19 @@ namespace Graphs
             //g.insertEdge(2, 3, 1);
             //g.insertEdge(3, 2, 1);
 
-            g.insertEdge(0, 1, 26);
-            g.insertEdge(0, 2, 16);
-            g.insertEdge(1, 0, 26);
-            g.insertEdge(1, 2, 12);
-            g.insertEdge(2, 0, 16);
-            g.insertEdge(2, 1, 12);
-            g.insertEdge(2, 3, 8);
-            g.insertEdge(3, 2, 8);
+            //g.insertEdge(0, 1, 26);
+            //g.insertEdge(0, 2, 16);
+            //g.insertEdge(1, 0, 26);
+            //g.insertEdge(1, 2, 12);
+            //g.insertEdge(2, 0, 16);
+            //g.insertEdge(2, 1, 12);
+            //g.insertEdge(2, 3, 8);
+            //g.insertEdge(3, 2, 8);
+
+            g.insertEdge(0, 1, 1);
+            g.insertEdge(0, 2, 1);
+            g.insertEdge(1, 2, 1);
+            g.insertEdge(2, 3, 1);
 
             Console.WriteLine("Graphs Adjacency Matrix:");
             g.display();
@@ -134,7 +139,9 @@ namespace Graphs
             g.edges();
             Console.WriteLine("Edge between 1--3: " + g.existEdge(1, 3));
             Console.WriteLine("Edge between 1--2: " + g.existEdge(1, 2));
-            Console.WriteLine("Degree of Vertex 2L " + g.inDegree(2));
+            Console.WriteLine("Degree of Vertex 2: " + (g.inDegree(2) + g.outDegree(2)));
+            Console.WriteLine("InDegree of Vertex 2: " + g.inDegree(2));
+            Console.WriteLine("OutDegree of Vertex 2: " + g.outDegree(2));
             Console.WriteLine("Graphs Adjacency Matrix:");
             g.display();
             g.removeEdge(1, 2);
