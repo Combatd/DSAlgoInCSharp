@@ -56,6 +56,39 @@ namespace Heaps
             return data[1]; // we don't consider index 0
         }
 
+        public int deleteMax()
+        {
+            if (isEmpty())
+            {
+                Console.WriteLine("Heap is Empty");
+                return -1;
+            }
+            int e = data[1];
+            data[1] = data[csize];
+            data[csize] = -1;
+            csize = csize - 1;
+            int i = 1;
+            int j = i * 2;
+            while (j <= csize)
+            {
+                if(data[j] < data[j + 1])
+                {
+                    j = j + 1;
+                }
+                if (data[i] < data[j])
+                {
+                    int temp = data[i];
+                    data[i] = data[j];
+                    i = 1;
+                    j = i * 2;
+                } else
+                {
+                    break;
+                }
+            }
+            return e;
+        }
+
         public void display()
         {
             for(int i = 0; i < data.Length; i++)
@@ -75,6 +108,10 @@ namespace Heaps
             h.insert(10);
             h.display();
             h.insert(40);
+            h.display();
+
+            int element = h.deleteMax();
+            Console.WriteLine("Element Deleted: " + element);
             h.display();
 
             Console.ReadKey();
