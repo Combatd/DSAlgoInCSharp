@@ -2,6 +2,33 @@
 
 namespace Heaps
 {
+    class Sort
+    {
+        public void heapSort(int[] A, int n)
+        {
+            Heap h = new Heap();
+            for (int i = 0; i <n; i++)
+            {
+                h.insert(A[i]);
+            }
+            int k = n - 1;
+            for (int i = 0; i < n; i++)
+            {
+                A[k] = h.deleteMax();
+                k = k - 1;
+            } 
+        }
+
+        public void display(int[] A, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(A[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+
     class Heap
     {
         int[] data;
@@ -79,6 +106,7 @@ namespace Heaps
                 {
                     int temp = data[i];
                     data[i] = data[j];
+                    data[j] = temp;
                     i = 1;
                     j = i * 2;
                 } else
@@ -113,6 +141,14 @@ namespace Heaps
             int element = h.deleteMax();
             Console.WriteLine("Element Deleted: " + element);
             h.display();
+
+            Sort s = new Sort();
+            int[] A = { 63, 250, 835, 947, 651, 28 };
+            Console.WriteLine("Original Array");
+            s.display(A, 6);
+            s.heapSort(A, 6);
+            Console.WriteLine("Sorted Array");
+            s.display(A, 6);
 
             Console.ReadKey();
         }
